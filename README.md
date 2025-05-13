@@ -168,8 +168,8 @@ h2 iperf -c h1 -un 1048576
 <img src="results/Analazy.png" width="500"/>
 
 ### Вывод в терминал при работе модели
--Таблица Потоков DNS:
-<img src="results/res1.png" width="450"/> 
+- Таблица Потоков DNS:
+<img src="results/res1.png" width="450"/>
 - Таблица Потоков DNS, Voice, Ping:
 <img src="results/res2.png" width="450"/>
 - Таблица Потоков DNS, Telnet:
