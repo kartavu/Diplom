@@ -1,0 +1,69 @@
+Flow ID: 833952330353273988
+Source MAC: 22:5b:29:8b:5b:92
+Destination MAC: ee:96:0d:c2:7c:51
+Traffic Type: ping
+
+Forward direction:
+  Total Packets: 1764 (Change since last: 30)
+  Total Bytes: 783530 (Change since last: 13440)
+  Instantaneous Packets Per Second: 30.00
+  Average Packets Per Second: 15.61
+  Instantaneous Bits Per Second: 13440.00
+  Average Bits Per Second: 6933.89
+  Status: ACTIVE
+
+Reverse direction:
+  Total Packets: 1770 (Change since last: 30)
+  Total Bytes: 710835 (Change since last: 12190)
+  Instantaneous Packets Per Second: 30.00
+  Average Packets Per Second: 15.66
+  Instantaneous Bits Per Second: 12190.00
+  Average Bits Per Second: 6290.58
+  Status: ACTIVE
+------------------------------------------------------------
+Flow ID: 1864210200097014015
+Source MAC: ee:96:0d:c2:7c:51
+Destination MAC: ba:cb:b3:e3:43:26
+Traffic Type: ping
+
+Forward direction:
+  Total Packets: 1 (Change since last: 0)
+  Total Bytes: 42 (Change since last: 0)
+  Instantaneous Packets Per Second: 0.00
+  Average Packets Per Second: 0.02
+  Instantaneous Bits Per Second: 0.00
+  Average Bits Per Second: 0.66
+  Status: INACTIVE
+
+Reverse direction:
+  Total Packets: 3 (Change since last: 0)
+  Total Bytes: 262 (Change since last: 0)
+  Instantaneous Packets Per Second: 0.00
+  Average Packets Per Second: 0.05
+  Instantaneous Bits Per Second: 0.00
+  Average Bits Per Second: 4.16
+  Status: INACTIVE
+------------------------------------------------------------
+Flow ID: 7952201901938362330
+Source MAC: 22:5b:29:8b:5b:92
+Destination MAC: ba:cb:b3:e3:43:26
+Traffic Type: dns
+
+Forward direction:
+  Total Packets: 1 (Change since last: 0)
+  Total Bytes: 42 (Change since last: 0)
+  Instantaneous Packets Per Second: 0.00
+  Average Packets Per Second: 0.03
+  Instantaneous Bits Per Second: 0.00
+  Average Bits Per Second: 1.31
+  Status: INACTIVE
+
+Reverse direction:
+  Total Packets: 2 (Change since last: 0)
+  Total Bytes: 166 (Change since last: 0)
+  Instantaneous Packets Per Second: 0.00
+  Average Packets Per Second: 0.06
+  Instantaneous Bits Per Second: 0.00
+  Average Bits Per Second: 5.35
+  Status: INACTIVE
+------------------------------------------------------------

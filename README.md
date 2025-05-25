@@ -80,6 +80,7 @@ J --> K[Классификация]
 ### 4. Оценка результатов
 - Строится **матрица ошибок** (confusion matrix).
 - Анализируются ошибочные классификации.
+- Метрики и данные сохраняются в txt файл
 
 ## Структура проекта
 
@@ -169,14 +170,20 @@ h2 iperf -c h1 -un 1048576
 
 ### Вывод в терминал при работе модели
 - Таблица Потоков DNS:
-<img src="results/res1.png" width="450"/>
+<img src="results/res1.png" width="500"/>
 - Таблица Потоков DNS, Voice, Ping:
-<img src="results/res2.png" width="450"/>
+<img src="results/res2.png" width="500"/>
 - Таблица Потоков DNS, Telnet:
-<img src="results/res3.png" width="450"/>
+<img src="results/res3.png" width="500"/>
 
 ### Тестирование пропускной способности сети
 - Без модели:
 <img src="results/test_no_ml.png" width="500"/>
 - С моделью:
 <img src="results/test_mininet_with_ml.png" width="500"/>
+
+### Полноценные результаты 
+- DNS трафик:
+<img src="results/output_file1.png" width="500"/>
+- Ping трафик:
+<img src="results/output_file2.png" width="500"/>
