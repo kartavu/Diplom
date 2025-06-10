@@ -158,6 +158,37 @@ h1 telnet h2
 ```bash
 h1 iperf -s -u &
 h2 iperf -c h1 -un 1048576
+
+h1 iperf -s -u -B 224.0.0.251 -p 5353 -i 1 &
+h2 iperf -c 224.0.0.251 -u -p 5353 -b 5M -t 20 -i 5 --bind 192.168.1.2
+
+h1 tcpdump -i h1-eth0 -w /tmp/traffic.pcap &
+h2 iperf -c 192.168.1.1 -u -b 10M -t 30 -p 5001
+
+
+apt update && apt install -y git build-essential autoconf libtool libpcap-dev
+git clone https://github.com/ntop/nDPI.git
+cd nDPI
+./autogen.sh && ./configure && make
+
+./example/ndpiReader -i /tmp/iperf_udp.pcap -v 1 > results.txt
+nano results.txt
+
+h1 iperf -s -B 224.0.0.251 -i1 -u -p 5353 &
+h2 iperf -c 224.0.0.251 -i5 -t200 -u -b5m -p 5353 --bind 192.168.1.5
+
+
+-u - ключ для протокола UDP
+по умолчанию TCP
+h1 iperf -c 192.168.1.5 -un 1048576
+h2 iperf -s -u &
+
+фрагметированный трафик
+h1 iperf -c 192.168.1.5 -l 2500 -t 10 -u
+h2 iperf -s &
+
+проверить обьем трафика
+iperf -c 192.168.1.5 -i1 -u -S 184 -b700M -t99999
 ```
 
 ### Качество классификации
@@ -176,11 +207,25 @@ h2 iperf -c h1 -un 1048576
 - Таблица Потоков DNS, Telnet:
 <img src="results/res3.png" width="500"/>
 
-### Тестирование пропускной способности сети
-- Без модели:
+### Тестирование пропускной способности сети Без модели
+- UDP-тест между двумя хостами: h2 отправляет 1 МБ данных на h1:
 <img src="results/test_no_ml.png" width="500"/>
-- С моделью:
+- Multicast-тест: h2 отправляет UDP-трафик 5 Мбит/с на 224.0.0.251, принимается h1.:
+<img src="results/test_no_ml_1.png" width="500"/>
+- Генерация UDP-нагрузки 10 Мбит/с:
+<img src="results/test_no_ml_2.png" width="500"/>
+- Анализ трафика: обнаружены UDP-потоки:
+<img src="results/test_no_ml_3.png" width="500"/>
+
+### Тестирование пропускной способности сети с моделью
+- UDP-тест между двумя хостами: h2 отправляет 1 МБ данных на h1::
 <img src="results/test_mininet_with_ml.png" width="500"/>
+- Multicast-тест: h2 отправляет UDP-трафик 5 Мбит/с на 224.0.0.251, принимается h1:
+<img src="results/test_mininet_with_ml_1.png" width="500"/>
+- h1 передаёт 1 МБ UDP-данных на h2:
+<img src="results/test_mininet_with_ml_2.png" width="500"/>
+- Фрагментированный UDP-трафик: h1 отправляет пакеты по 2500 байт на h2:
+<img src="results/test_mininet_with_ml_3.png" width="500"/>
 
 ### Полноценные результаты 
 - DNS трафик:
