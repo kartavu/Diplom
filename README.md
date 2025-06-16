@@ -56,7 +56,7 @@
 ```mermaid
 graph TD
   A[Dockerfile] --> B[Mininet]
-  B --> S1[Коммутатор s1 (OpenFlow)]
+  B --> S1[Коммутатор s1]
   S1 --> H1[Хост h1]
   S1 --> H2[Хост h2]
   S1 --> H3[Хост h3]
@@ -67,7 +67,7 @@ graph TD
   D --> E[Сбор и логирование данных]
 
   E --> F[traffic_classifier_python3.py]
-  F --> G[CSV/графики (CDF): результаты]
+  F --> G[Pезультаты]
 ```
 
 ## Архитектура модели
