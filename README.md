@@ -55,7 +55,6 @@
 
 ```mermaid
 graph TD
-graph TD
   A[Dockerfile] --> B[Mininet]
   B --> S1[Коммутатор s1 (OpenFlow)]
   S1 --> H1[Хост h1]
