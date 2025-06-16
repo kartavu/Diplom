@@ -55,41 +55,20 @@
 
 ```mermaid
 graph TD
-  subgraph Docker
-    A1[Dockerfile\n(установка Mininet,\nRyu, ML-библиотеки)]
-  end
+graph TD
+  A[Dockerfile] --> B[Mininet]
+  B --> S1[Коммутатор s1 (OpenFlow)]
+  S1 --> H1[Хост h1]
+  S1 --> H2[Хост h2]
+  S1 --> H3[Хост h3]
+  S1 --> H4[Хост h4]
 
-  subgraph Mininet_Topology
-    S1[OpenFlow-коммутатор s1]
-    H1[Хост h1\n(Traffic: ARP)]
-    H2[Хост h2\n(Traffic: Ping)]
-    H3[Хост h3\n(Traffic: Telnet)]
-    H4[Хост h4\n(Traffic: DNS/Voice)]
+  B --> C[Контроллер Ryu - simple_monitor_AK.py]
+  C --> D[Запрос статистики (FlowStats)]
+  D --> E[Сбор и логирование данных]
 
-    H1 --> S1
-    H2 --> S1
-    H3 --> S1
-    H4 --> S1
-  end
-
-  subgraph SDN_Controller
-    C0[Ryu Controller\n(simple_monitor_AK.py)]
-    ML[ML-модель\n(Logistic Regression)]
-    CSV[Сохранение данных\nв CSV]
-    Stats[Flow Statistics\n(Bytes, PPS, Packets)]
-
-    S1 -->|OpenFlow| C0
-    C0 --> Stats
-    Stats --> ML
-    ML --> CSV
-  end
-
-  subgraph Visualization
-    Graphs[Графики CDF\nСравнение с/без ML]
-    CSV --> Graphs
-  end
-
-  A1 --> S1
+  E --> F[traffic_classifier_python3.py]
+  F --> G[CSV/графики (CDF): результаты]
 ```
 
 ## Архитектура модели
