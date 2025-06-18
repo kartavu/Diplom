@@ -55,21 +55,21 @@
 
 ```mermaid
 graph TD
-  A[Dockerfile] --> B[Mininet]
-  B --> S1[Коммутатор s1]
-  S1 --> H1[Хост h1]
-  S1 --> H2[Хост h2]
-  S1 --> H3[Хост h3]
-  S1 --> H4[Хост h4]
+    Dockerfile --> Mininet
+    Mininet --> S1[Коммутатор S1]
+    S1 --> H1[Хост h1]
+    S1 --> H2[Хост h2]
+    S1 --> H3[Хост h3]
+    S1 --> H4[Хост h4]
 
-  A --> C[traffic_classifier_python3]
-  C --> D[Контроллер Ryu]
-  D --> S1[Запрос статистики]
-  S1 --> E[Отправляет статистику]
-  E --> D
-  D --> F[Анализ данных]
-  F --> C
-  C --> G[Pезультаты]
+    Dockerfile --> Ryu[Контроллер Ryu]
+    Ryu --> Req[Запрос статистики]
+    Req --> S1
+    S1 --> Resp[Ответ статистикой]
+    Resp --> Ryu
+    Ryu --> Analysis[Анализ данных]
+    Analysis --> Classifier[traffic_classifier_python3.py]
+    Classifier --> Results[Результаты]
 ```
 
 ## Архитектура модели
