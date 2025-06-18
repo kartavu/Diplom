@@ -62,8 +62,8 @@ graph TD
   S1 --> H3[Хост h3]
   S1 --> H4[Хост h4]
 
-  A --> C[traffic_classifier_python3.py]
-  C --> D[Контроллер Ryu - simple_monitor_AK.py]
+  A --> C[traffic_classifier_python3]
+  C --> D[Контроллер Ryu]
   D --> S1[Запрос статистики]
   S1 --> E[Отправляет статистику]
   E --> D
